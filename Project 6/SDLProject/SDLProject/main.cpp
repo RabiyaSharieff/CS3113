@@ -85,7 +85,7 @@ void Initialize() {
     
     glUseProgram(program.programID);
     
-    glClearColor(0.2f, 0.2f, 0.4f, 1.0f); // purple-blue background color
+    glClearColor(0.0f, 0.5f, 0.0f, 0.0f); // green background color
     glEnable(GL_BLEND);
 
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

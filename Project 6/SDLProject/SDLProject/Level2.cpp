@@ -7,23 +7,23 @@
 
 unsigned int level2_data[] =
 {
-    70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 70, 52, 70, 70, 70, 70, 71, 72, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 0, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-    70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+    13, 0, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+     1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
 };
 
 Level2::Level2(int _lives) {
@@ -33,8 +33,8 @@ Level2::Level2(int _lives) {
 void Level2::Initialize() {
     state.nextScene = -10;
     
-    GLuint mapTextureID = Util::LoadTexture("MysticChroma_Basics.png");
-    state.map = new Map(LEVEL2_WIDTH, LEVEL2_HEIGHT, level2_data, mapTextureID, 1.0f, 16, 16);
+    GLuint mapTextureID = Util::LoadTexture("picnic.png");
+    state.map = new Map(LEVEL2_WIDTH, LEVEL2_HEIGHT, level2_data, mapTextureID, 1.0f, 12, 12);
     
     // Initialize and Load Player
     state.player = new Entity();
@@ -130,23 +130,23 @@ void Level2::Update(float deltaTime) {
 }
 
 void Level2::Render(ShaderProgram *program) {
-    GLuint fontTextureID = Util::LoadTexture("font1.png");
-    Util::DrawText(program, fontTextureID, "Level 2", 1.0f, -0.1f, glm::vec3(9.5, -10.5, 0));
-    Util::DrawText(program, fontTextureID, "Climb Up! Again...", 0.4f, -0.2f, glm::vec3(9.4, -11.3, 0));
-    Util::DrawText(program, fontTextureID, "Portal ->", 0.4f, -0.2f, glm::vec3(1, -1.5, 0));
-    Util::DrawText(program, fontTextureID, "Portal!", 0.4f, -0.2f, glm::vec3(11.5, 1.0, 0));
-    
-    std::string lives = std::to_string(state.player_lives);
-    std::string lives_remaining = "Lives: " + lives;
-       
-    
-    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(15, 1, 0));
-    
-    
     state.map->Render(program);
     state.player->Render(program);
     for (int i = 0; i < LEVEL2_ENEMY_COUNT; i++) {
         state.enemies[i].Render(program);
     }
+    
+    GLuint fontTextureID = Util::LoadTexture("font1.png");
+    Util::DrawText(program, fontTextureID, "Level 2", 1.0f, -0.1f, glm::vec3(9.5, -10.5, 0));
+    Util::DrawText(program, fontTextureID, "Climb Up! Again...", 0.4f, -0.2f, glm::vec3(9.4, -11.3, 0));
+    Util::DrawText(program, fontTextureID, "Portal ->", 0.4f, -0.2f, glm::vec3(1, -1.5, 0));
+    Util::DrawText(program, fontTextureID, "Portal!", 0.4f, -0.2f, glm::vec3(11.5, 1.0, 0));
+
+    std::string lives = std::to_string(state.player_lives);
+    std::string lives_remaining = "Lives: " + lives;
+      
+
+    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(15, 1, 0));
+
 }
 

@@ -73,8 +73,8 @@ class Entity {
         bool CheckCollision(Entity *other);
         void CheckCollisionsY(Entity *objects, int objectCount);
         void CheckCollisionsX(Entity *objects, int objectCount);
-        //void CheckCollisionsEnemy(Entity *enemies, int enemyCount);
-        //void CheckCollisionsCoin(Entity *coins);
+        void CheckCollisionsEnemy(Entity *enemies, int enemyCount);
+        void CheckCollisionsCoin(Entity *coins, int coinCount);
         void CheckCollisionsX(Map *map);
         void CheckCollisionsY(Map *map);
         

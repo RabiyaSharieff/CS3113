@@ -144,36 +144,36 @@ void Entity::CheckCollisionsX(Map *map)
     }
 }
 
-//// player collisions with enemies (aliens)
-//void Entity::CheckCollisionsEnemy(Entity *enemies, int enemyCount) {
-//    for (int i = 0; i < enemyCount; i++) {
-//        Entity *enemy = &enemies[i];
-//
-//        if (CheckCollision(enemy)) {
-//            playerDefeated = true; // any enemy collison occurs
+// player collisions with enemies (aliens)
+void Entity::CheckCollisionsEnemy(Entity *enemies, int enemyCount) {
+    for (int i = 0; i < enemyCount; i++) {
+        Entity *enemy = &enemies[i];
+
+        if (CheckCollision(enemy)) {
+            playerDefeated = true; // any enemy collison occurs 
+        }
+//        else{
+//            std::cout << "going straight to enemy was defeated";
+//            enemy->playerDefeated = true; // enemy was defeated if bullet collison occurs
+//            enemy->isActive = false;
 //        }
-////        else{
-////            std::cout << "going straight to enemy was defeated";
-////            enemy->playerDefeated = true; // enemy was defeated if bullet collison occurs
-////            enemy->isActive = false;
-////        }
-//
-//    }
-//}
+        
+    }
+}
 
 
-//// player collisions with coin
-//void Entity::CheckCollisionsCoin(Entity *coins, int coinCount) {
-//    std::cout << "inside check coins collision";
-//    for (int i = 0; i < coinCount; i++) {
-//        Entity *coin = &coins[i];
-//
-//        if (CheckCollision(coin)) {
-//            coin->wasCollected = true;
-//            coin->isActive = false;
-//        }
-//    }
-//}
+// player collisions with coin
+void Entity::CheckCollisionsCoin(Entity *coins, int coinCount) {
+    std::cout << "inside check coins collision";
+    for (int i = 0; i < coinCount; i++) {
+        Entity *coin = &coins[i];
+        
+        if (CheckCollision(coin)) {
+            wasCollected = true;
+            coin->isActive = false;
+        }
+    }
+}
 
 
 
@@ -228,13 +228,13 @@ void Entity::AIPatrol() {
             
         case ACTIVE:
             if (position.x < 16.0f) {
-                movement = glm::vec3(1, 0, 0);
+                movement = glm::vec3(-1, 0, 0);
             }
             else {
                 position.x = 1.0f;
-                movement = glm::vec3(1, 0, 0);
+                movement = glm::vec3(-1, 0, 0);
             }
-            movement = glm::vec3(1, 0, 0);
+            movement = glm::vec3(-1, 0, 0);
             break;
     }
 }
@@ -246,28 +246,19 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
     bottomCollision = false;
     leftCollision = false;
     rightCollision = false;
-    
-    std::cout << entityType;
-    
+
     if (entityType == ENEMY) {
         AI(player);
     }
     else {
-        for (int i = 0; i < objectCount; i++) {
-            if ((CheckCollision(&objects[i])) && (objects[i].entityType == COIN)) {
-                objects[i].wasCollected = true;
-                objects[i].isActive = false;
-            }
-            else if ((CheckCollision(&objects[i])) && (objects[i].entityType == ENEMY))  {
-                playerDefeated = true;
-            }
-        }
+        CheckCollisionsEnemy(objects, objectCount);
     }
     
-//    if (entityType == PLAYER){
-//         std::cout << "step 1 to get to coin collison";
-//        CheckCollisionsCoin(objects, objectCount);
-//    }
+    if (entityType == PLAYER){
+         std::cout << "step 1 to get to coin collison";
+        CheckCollisionsCoin(objects, objectCount);
+    }
+    
 
     if (animIndices != NULL) {
         if (glm::length(movement) != 0) {

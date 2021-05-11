@@ -19,7 +19,7 @@ struct GameState {
     Map *map;
     Entity *player;
     Entity *enemies;
-    Entity *objects;
+    Entity *coins;
     int nextScene;
     int player_lives;
 };

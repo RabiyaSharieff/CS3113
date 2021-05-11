@@ -7,23 +7,23 @@
 
 unsigned int level3_data[] =
 {
-   70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 70, 52, 70, 70, 70, 70, 71, 72, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 0, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 0, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 70,
-   70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
+   1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 0, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+   13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
+    1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
 };
 
 Level3::Level3(int _lives) {
@@ -33,8 +33,8 @@ Level3::Level3(int _lives) {
 void Level3::Initialize() {
     state.nextScene = -10;
     
-    GLuint mapTextureID = Util::LoadTexture("MysticChroma_Basics.png");
-    state.map = new Map(LEVEL3_WIDTH, LEVEL3_HEIGHT, level3_data, mapTextureID, 1.0f, 16, 16);
+    GLuint mapTextureID = Util::LoadTexture("picnic.png");
+    state.map = new Map(LEVEL3_WIDTH, LEVEL3_HEIGHT, level3_data, mapTextureID, 1.0f, 12, 12);
     
     // Initialize and Load Player
     state.player = new Entity();
@@ -133,22 +133,23 @@ void Level3::Update(float deltaTime) {
 }
 
 void Level3::Render(ShaderProgram *program) {
-    GLuint fontTextureID = Util::LoadTexture("font1.png");
-    Util::DrawText(program, fontTextureID, "Level 3", 1.0f, -0.1f, glm::vec3(10, -12, 0));
-    Util::DrawText(program, fontTextureID, "Watch out for the Aliens...",  0.4f, -0.2f, glm::vec3(10, -13, 0));
-    Util::DrawText(program, fontTextureID, "Last One!",  0.4f, -0.2f, glm::vec3(11, 1.05, 0));
-    
-    std::string lives = std::to_string(state.player_lives);
-    std::string lives_remaining = "Lives: " + lives;
-    
-    
-    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(15, 1, 0));
-    
     
     state.map->Render(program);
     state.player->Render(program);
     for (int i = 0; i < LEVEL3_ENEMY_COUNT; i++) {
         state.enemies[i].Render(program);
     }
+    
+    GLuint fontTextureID = Util::LoadTexture("font1.png");
+    Util::DrawText(program, fontTextureID, "Level 3", 1.0f, -0.1f, glm::vec3(10, -12, 0));
+    Util::DrawText(program, fontTextureID, "Watch out for the Aliens...",  0.4f, -0.2f, glm::vec3(10, -13, 0));
+    Util::DrawText(program, fontTextureID, "Last One!",  0.4f, -0.2f, glm::vec3(11, 1.05, 0));
+
+    std::string lives = std::to_string(state.player_lives);
+    std::string lives_remaining = "Lives: " + lives;
+
+
+    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(15, 1, 0));
+       
 }
 
