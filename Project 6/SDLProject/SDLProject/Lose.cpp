@@ -57,7 +57,6 @@ void Lose::Initialize() {
     state.player->height = 0.8f;
     state.player->width = 0.35f;
 
-    state.player->jumpPower = 7.0f;
 }
 
 void Lose::Update(float deltaTime) {

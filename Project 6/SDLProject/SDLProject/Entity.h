@@ -14,7 +14,7 @@
 #include "Map.h"
 
 enum EntityType {PLAYER, PLATFORM, ENEMY, COIN};
-enum AIType { WALKER, WAITANDGO, PATROL };
+enum AIType { WALKER, WAITANDGO, PATROLX, PATROLY };
 enum AIState { IDLE, ACTIVE };
 
 class Entity {
@@ -30,9 +30,6 @@ class Entity {
         
         float width = 1;
         float height = 1;
-        
-        float jump = false;
-        float jumpPower = 0;
         
         float speed;
         
@@ -75,14 +72,13 @@ class Entity {
         void CheckCollisionsX(Entity *objects, int objectCount);
         void CheckCollisionsEnemy(Entity *enemies, int enemyCount);
         void CheckCollisionsCoin(Entity *coins, int coinCount);
-        void CheckCollisionsX(Map *map);
-        void CheckCollisionsY(Map *map);
         
         void AI(Entity *player);
         void AIWalker();
         void AIWaitAndGo(Entity *player);
-        void AIPatrol();
-    
+        void AIPatrolX();
+        void AIPatrolY();
+           
         void Update(float deltaTime, Entity *player, Entity *objects, int objectCount, Map *map);
         void Render(ShaderProgram *program);
         void DrawSpriteFromTextureAtlas(ShaderProgram *program, GLuint textureID, int index);

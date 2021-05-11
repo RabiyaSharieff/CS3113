@@ -35,7 +35,6 @@ Scene *currentScene;
 Scene *sceneList[6];
 
 Mix_Music *music;
-Mix_Chunk *jump_sound;
 
 void SwitchToScene(int _nextScene, int _lives=3) {
     if (_nextScene == 1) {
@@ -71,10 +70,9 @@ void Initialize() {
     
     // load music and sounds
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
-    music = Mix_LoadMUS("505674__romariogrande__a-ticket-from-earth.wav");
+    music = Mix_LoadMUS("516950__m71art__jamm.wav");
     Mix_PlayMusic(music, -1);
     
-    jump_sound = Mix_LoadWAV("jump.wav");
     
     viewMatrix = glm::mat4(1.0f);
     modelMatrix = glm::mat4(1.0f);
@@ -134,13 +132,6 @@ void ProcessInput() {
                         SwitchToScene(1);
                         break;
                         
-//                    case SDLK_SPACE:
-//                        // Player Jumps on Space
-//                        if (currentScene->state.player->bottomCollision) {
-//                            currentScene->state.player->jump = true;
-//                            Mix_PlayChannel(-1, jump_sound, 0);
-//                        }
-//                        break;
                 }
                 break; // SDL_KEYDOWN
         }
@@ -201,7 +192,7 @@ void Update() {
     viewMatrix = glm::mat4(1.0f);
     
 
-    // left boundary
+    //left boundary
     if (currentScene->state.player->position.y > -12.5) {
         if (currentScene->state.player->position.x > 5) {
             if (currentScene->state.player->position.x > 12) {
@@ -245,6 +236,7 @@ void Update() {
             viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 12.75, 0));
         }
     }
+    
     std::cout << "(" << currentScene->state.player->position.x << ", " << currentScene->state.player->position.y << ", " << currentScene->state.player->position.z;
     std::cout << ")\n";
 

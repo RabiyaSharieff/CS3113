@@ -51,52 +51,6 @@ void Entity::CheckCollisionsY(Entity *objects, int objectCount)
     }
 }
 
-void Entity::CheckCollisionsY(Map *map)
-{
-    // Probes for tiles
-    glm::vec3 top = glm::vec3(position.x, position.y + (height / 2), position.z);
-    glm::vec3 top_left = glm::vec3(position.x - (width / 2), position.y + (height / 2), position.z);
-    glm::vec3 top_right = glm::vec3(position.x + (width / 2), position.y + (height / 2), position.z);
-
-    glm::vec3 bottom = glm::vec3(position.x, position.y - (height / 2), position.z);
-    glm::vec3 bottom_left = glm::vec3(position.x - (width / 2), position.y - (height / 2), position.z);
-    glm::vec3 bottom_right = glm::vec3(position.x + (width / 2), position.y - (height / 2), position.z);
-
-    float penetration_x = 0;
-    float penetration_y = 0;
-
-    if (map->IsSolid(top, &penetration_x, &penetration_y) && velocity.y > 0) {
-        position.y -= penetration_y;
-        velocity.y = 0;
-        topCollision = true;
-    }
-    else if (map->IsSolid(top_left, &penetration_x, &penetration_y) && velocity.y > 0) {
-        position.y -= penetration_y;
-        velocity.y = 0;
-        topCollision = true;
-    }
-    else if (map->IsSolid(top_right, &penetration_x, &penetration_y) && velocity.y > 0) {
-        position.y -= penetration_y;
-        velocity.y = 0;
-        topCollision = true;
-    }
-
-    if (map->IsSolid(bottom, &penetration_x, &penetration_y) && velocity.y < 0) {
-        position.y += penetration_y;
-        velocity.y = 0;
-        bottomCollision = true;
-    }
-    else if (map->IsSolid(bottom_left, &penetration_x, &penetration_y) && velocity.y < 0) {
-        position.y += penetration_y;
-        velocity.y = 0;
-        bottomCollision = true;
-    }
-    else if (map->IsSolid(bottom_right, &penetration_x, &penetration_y) && velocity.y < 0) {
-        position.y += penetration_y;
-        velocity.y = 0;
-        bottomCollision = true;
-    }
-}
 
 void Entity::CheckCollisionsX(Entity *objects, int objectCount)
 {
@@ -122,27 +76,6 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount)
     }
 }
 
-void Entity::CheckCollisionsX(Map *map)
-{
-    // Probes for tiles
-    glm::vec3 left = glm::vec3(position.x - (width / 2), position.y, position.z);
-    glm::vec3 right = glm::vec3(position.x + (width / 2), position.y, position.z);
-
-    float penetration_x = 0;
-    float penetration_y = 0;
-
-    if (map->IsSolid(left, &penetration_x, &penetration_y) && velocity.x < 0) {
-        position.x += penetration_x;
-        velocity.x = 0;
-        leftCollision = true;
-    }
-
-    if (map->IsSolid(right, &penetration_x, &penetration_y) && velocity.x > 0) {
-        position.x -= penetration_x;
-        velocity.x = 0;
-        rightCollision = true;
-    }
-}
 
 // player collisions with enemies (aliens)
 void Entity::CheckCollisionsEnemy(Entity *enemies, int enemyCount) {
@@ -152,17 +85,12 @@ void Entity::CheckCollisionsEnemy(Entity *enemies, int enemyCount) {
         if (CheckCollision(enemy)) {
             playerDefeated = true; // any enemy collison occurs 
         }
-//        else{
-//            std::cout << "going straight to enemy was defeated";
-//            enemy->playerDefeated = true; // enemy was defeated if bullet collison occurs
-//            enemy->isActive = false;
-//        }
         
     }
 }
 
 
-// player collisions with coin
+// player collisions with coin (cake)
 void Entity::CheckCollisionsCoin(Entity *coins, int coinCount) {
     std::cout << "inside check coins collision";
     for (int i = 0; i < coinCount; i++) {
@@ -176,7 +104,6 @@ void Entity::CheckCollisionsCoin(Entity *coins, int coinCount) {
 }
 
 
-
 void Entity::AI(Entity *player) {
     switch(aiType) {
         case WALKER:
@@ -187,8 +114,12 @@ void Entity::AI(Entity *player) {
             AIWaitAndGo(player);
             break;
             
-        case PATROL:
-            AIPatrol();
+        case PATROLX:
+            AIPatrolX();
+            break;
+            
+        case PATROLY:
+            AIPatrolY();
             break;
     }
 }
@@ -220,24 +151,44 @@ void Entity::AIWaitAndGo(Entity *player) {
     }
 }
 
-// walks in continuous loop on middle platform
-void Entity::AIPatrol() {
+// walks in continuous loop on middle platform on X axis
+void Entity::AIPatrolX() {
     switch(aiState) {
         case IDLE:
             break;
             
         case ACTIVE:
-            if (position.x < 16.0f) {
+            if (position.x > 1.0f) {
                 movement = glm::vec3(-1, 0, 0);
             }
             else {
-                position.x = 1.0f;
+                position.x = 16.0f;
                 movement = glm::vec3(-1, 0, 0);
             }
             movement = glm::vec3(-1, 0, 0);
             break;
     }
 }
+    
+    // walks in continuous loop on middle platform on Y axis
+    void Entity::AIPatrolY() {
+        switch(aiState) {
+            case IDLE:
+                break;
+                
+            case ACTIVE:
+                if (position.y > -15.0f) {
+                    movement = glm::vec3(0, -1, 0);
+                }
+                else {
+                    position.y = 0.0f;
+                    movement = glm::vec3(0, -1, 0);
+                }
+                movement = glm::vec3(0, -1, 0);
+                break;
+        }
+}
+    
 void Entity::Update(float deltaTime, Entity *player, Entity *objects, int objectCount, Map *map)
 {
     if (isActive == false) return;
@@ -254,10 +205,10 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
         CheckCollisionsEnemy(objects, objectCount);
     }
     
-    if (entityType == PLAYER){
-         std::cout << "step 1 to get to coin collison";
-        CheckCollisionsCoin(objects, objectCount);
-    }
+//    if (entityType == PLAYER){
+//         std::cout << "step 1 to get to coin collison";
+//        CheckCollisionsCoin(objects, objectCount);
+//    }
     
 
     if (animIndices != NULL) {
@@ -279,16 +230,6 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
     }
     
     position += movement * speed * deltaTime;
-
-//    velocity.x = movement.x * speed;
-//    velocity.y = movement.y * speed;
-//    velocity += acceleration * deltaTime;
-
-//    position.y += velocity.y * deltaTime; // Move on Y
-//   CheckCollisionsX(map);
-////
-//    position.x += velocity.x * deltaTime; // Move on X
-//   CheckCollisionsY(map);
 
     if (entityType == PLAYER) {
         CheckCollisionsY(objects, objectCount);

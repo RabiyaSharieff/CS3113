@@ -9,11 +9,8 @@
 /* Begin PBXBuildFile section */
 		764AFE762602A4AC00E6E40B /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 764AFE752602A4AC00E6E40B /* Entity.cpp */; };
 		764AFE802602A51900E6E40B /* font1.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 764AFE7B2602A4E400E6E40B /* font1.png */; };
-		765A2FBF2645F5ED00452602 /* MysticChroma_Basics.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A2FBE2645F5E800452602 /* MysticChroma_Basics.png */; };
 		765A3077264899E100452602 /* ninja_m.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A3076264899D900452602 /* ninja_m.png */; };
 		765A307C2649CD8A00452602 /* coin.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A307B2649CD7C00452602 /* coin.png */; };
-		765A30832649F7A700452602 /* enemy.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A30822649F79E00452602 /* enemy.png */; };
-		765A30852649F87E00452602 /* enemy2.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A30842649F87900452602 /* enemy2.png */; };
 		765A3087264A506D00452602 /* cake.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A3086264A506700452602 /* cake.png */; };
 		765A3089264A508800452602 /* picnic.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A3088264A508300452602 /* picnic.png */; };
 		765A308B264A576600452602 /* ant.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 765A308A264A576000452602 /* ant.png */; };
@@ -26,10 +23,9 @@
 		7660950B262CD0BA0092372F /* Level3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76609509262CD0BA0092372F /* Level3.cpp */; };
 		7660950E262CD0E00092372F /* Win.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7660950C262CD0E00092372F /* Win.cpp */; };
 		76609511262CD10C0092372F /* Lose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7660950F262CD10C0092372F /* Lose.cpp */; };
-		76609517262CD1F40092372F /* 505674__romariogrande__a-ticket-from-earth.wav in Copy Files */ = {isa = PBXBuildFile; fileRef = 76609512262CD18F0092372F /* 505674__romariogrande__a-ticket-from-earth.wav */; };
-		76609518262CD1F90092372F /* purple_alien.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 76609514262CD1CF0092372F /* purple_alien.png */; };
-		76609519262CD2010092372F /* jump.wav in Copy Files */ = {isa = PBXBuildFile; fileRef = 76609513262CD1990092372F /* jump.wav */; };
-		7660951A262CD2040092372F /* platformPack_tilesheet.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 76609516262CD1E70092372F /* platformPack_tilesheet.png */; };
+		76949D30264B113C00D730A9 /* ant2.png in Copy Files */ = {isa = PBXBuildFile; fileRef = 76949D2F264B113500D730A9 /* ant2.png */; };
+		76949D32264B370A00D730A9 /* 516950__m71art__jamm.wav in Copy Files */ = {isa = PBXBuildFile; fileRef = 76949D31264B36FC00D730A9 /* 516950__m71art__jamm.wav */; };
+		76949D36264B383D00D730A9 /* fall1.flac in Copy Files */ = {isa = PBXBuildFile; fileRef = 76949D33264B381300D730A9 /* fall1.flac */; };
 		DBDF1B532323DE3F007CECB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDF1B522323DE3F007CECB1 /* main.cpp */; };
 		DBDF1B5E2323DE8D007CECB1 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDF1B5D2323DE8D007CECB1 /* ShaderProgram.cpp */; };
 		DBDF1B612323DE9E007CECB1 /* shaders in Copy Files */ = {isa = PBXBuildFile; fileRef = DBDF1B5C2323DE8D007CECB1 /* shaders */; };
@@ -47,19 +43,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				76609517262CD1F40092372F /* 505674__romariogrande__a-ticket-from-earth.wav in Copy Files */,
 				764AFE802602A51900E6E40B /* font1.png in Copy Files */,
-				76609518262CD1F90092372F /* purple_alien.png in Copy Files */,
-				76609519262CD2010092372F /* jump.wav in Copy Files */,
 				765A307C2649CD8A00452602 /* coin.png in Copy Files */,
-				7660951A262CD2040092372F /* platformPack_tilesheet.png in Copy Files */,
 				765A3077264899E100452602 /* ninja_m.png in Copy Files */,
-				765A30832649F7A700452602 /* enemy.png in Copy Files */,
-				765A2FBF2645F5ED00452602 /* MysticChroma_Basics.png in Copy Files */,
 				765A3087264A506D00452602 /* cake.png in Copy Files */,
 				765A3089264A508800452602 /* picnic.png in Copy Files */,
+				76949D30264B113C00D730A9 /* ant2.png in Copy Files */,
 				765A308B264A576600452602 /* ant.png in Copy Files */,
-				765A30852649F87E00452602 /* enemy2.png in Copy Files */,
+				76949D36264B383D00D730A9 /* fall1.flac in Copy Files */,
+				76949D32264B370A00D730A9 /* 516950__m71art__jamm.wav in Copy Files */,
 				DBDF1B612323DE9E007CECB1 /* shaders in Copy Files */,
 			);
 			name = "Copy Files";
@@ -71,11 +63,8 @@
 		764AFE742602A49300E6E40B /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		764AFE752602A4AC00E6E40B /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		764AFE7B2602A4E400E6E40B /* font1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = font1.png; sourceTree = "<group>"; };
-		765A2FBE2645F5E800452602 /* MysticChroma_Basics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MysticChroma_Basics.png; sourceTree = "<group>"; };
 		765A3076264899D900452602 /* ninja_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninja_m.png; sourceTree = "<group>"; };
 		765A307B2649CD7C00452602 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
-		765A30822649F79E00452602 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy.png; path = ../../../../enemy.png; sourceTree = "<group>"; };
-		765A30842649F87900452602 /* enemy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy2.png; sourceTree = "<group>"; };
 		765A3086264A506700452602 /* cake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cake.png; sourceTree = "<group>"; };
 		765A3088264A508300452602 /* picnic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picnic.png; sourceTree = "<group>"; };
 		765A308A264A576000452602 /* ant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ant.png; sourceTree = "<group>"; };
@@ -97,10 +86,9 @@
 		7660950D262CD0E00092372F /* Win.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Win.h; sourceTree = "<group>"; };
 		7660950F262CD10C0092372F /* Lose.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Lose.cpp; sourceTree = "<group>"; };
 		76609510262CD10C0092372F /* Lose.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lose.h; sourceTree = "<group>"; };
-		76609512262CD18F0092372F /* 505674__romariogrande__a-ticket-from-earth.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "505674__romariogrande__a-ticket-from-earth.wav"; sourceTree = "<group>"; };
-		76609513262CD1990092372F /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
-		76609514262CD1CF0092372F /* purple_alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purple_alien.png; path = "../../../../CS3113/05-Platformer/SDLProject/purple_alien.png"; sourceTree = "<group>"; };
-		76609516262CD1E70092372F /* platformPack_tilesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platformPack_tilesheet.png; sourceTree = "<group>"; };
+		76949D2F264B113500D730A9 /* ant2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ant2.png; sourceTree = "<group>"; };
+		76949D31264B36FC00D730A9 /* 516950__m71art__jamm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 516950__m71art__jamm.wav; sourceTree = "<group>"; };
+		76949D33264B381300D730A9 /* fall1.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = fall1.flac; sourceTree = "<group>"; };
 		DBDF1B4F2323DE3F007CECB1 /* SDLProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDLProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDF1B522323DE3F007CECB1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DBDF1B592323DE8D007CECB1 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
@@ -151,18 +139,14 @@
 		DBDF1B512323DE3F007CECB1 /* SDLProject */ = {
 			isa = PBXGroup;
 			children = (
-				76609512262CD18F0092372F /* 505674__romariogrande__a-ticket-from-earth.wav */,
-				76609514262CD1CF0092372F /* purple_alien.png */,
-				765A2FBE2645F5E800452602 /* MysticChroma_Basics.png */,
-				76609513262CD1990092372F /* jump.wav */,
+				76949D31264B36FC00D730A9 /* 516950__m71art__jamm.wav */,
 				765A3076264899D900452602 /* ninja_m.png */,
-				765A30822649F79E00452602 /* enemy.png */,
 				765A3088264A508300452602 /* picnic.png */,
-				765A30842649F87900452602 /* enemy2.png */,
+				76949D33264B381300D730A9 /* fall1.flac */,
+				76949D2F264B113500D730A9 /* ant2.png */,
 				765A308A264A576000452602 /* ant.png */,
 				765A3086264A506700452602 /* cake.png */,
 				765A307B2649CD7C00452602 /* coin.png */,
-				76609516262CD1E70092372F /* platformPack_tilesheet.png */,
 				764AFE7B2602A4E400E6E40B /* font1.png */,
 				DBDF1B5B2323DE8D007CECB1 /* glm */,
 				DBDF1B5D2323DE8D007CECB1 /* ShaderProgram.cpp */,

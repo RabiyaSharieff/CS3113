@@ -1,35 +1,37 @@
 #include "Level1.h"
+#include <SDL_mixer.h>
 
-#define LEVEL1_WIDTH 18
-#define LEVEL1_HEIGHT 17
+#define LEVEL1_WIDTH 17
+#define LEVEL1_HEIGHT 16
 
-#define LEVEL1_ENEMY_COUNT 1
+#define LEVEL1_ENEMY_COUNT 2
 #define LEVEL1_COIN_COUNT 1
 
 unsigned int level1_data[] =
 {
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 0, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-       13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14,
-        1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+          1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 0, 13,
+                1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13,
+                1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13,
+                1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13,
+                1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13,
+                1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13,
+                1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13,
+                1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+               13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13,
 };
 
 Level1::Level1(int _lives) {
     state.player_lives = _lives;
 }
+
+Mix_Chunk *fall_sound;
 
 void Level1::Initialize() {
     
@@ -64,26 +66,38 @@ void Level1::Initialize() {
     state.player->height = 0.8f;
     state.player->width = 0.35f;
 
-    state.player->jumpPower = 7.0f;
-    
-    // Initialize and Load Enemies (aliens)
+
+    // Initialize and load enemies
     state.enemies = new Entity[LEVEL1_ENEMY_COUNT];
-    state.enemies[0].entityType = ENEMY;
+
+    for (int i = 0; i < LEVEL1_ENEMY_COUNT; i ++) {
+      state.enemies[i].entityType = ENEMY;
+
+      if (i == 0) {
+          state.enemies[i].textureID = Util::LoadTexture("ant.png");
+          state.enemies[i].position = glm::vec3(9, -13, 0);
+          state.enemies[i].acceleration = glm::vec3(0, -9.81f, 0);
+          state.enemies[i].aiType = PATROLX;
+          state.enemies[i].aiState = ACTIVE;
+      }
+
+      else if (i == 1) {
+          state.enemies[i].textureID = Util::LoadTexture("ant2.png");
+          state.enemies[i].position = glm::vec3(12, 0, 0);
+          state.enemies[i].acceleration = glm::vec3(0, -9.81f, 0);
+          state.enemies[i].aiType = PATROLY;
+          state.enemies[i].aiState = ACTIVE;
+      }
+
+      state.enemies[i].height = 1.0f;
+      state.enemies[i].width = 1.0f;
+
+      state.enemies[i].movement = glm::vec3(0);
+      state.enemies[i].speed = 1;
+    }
     
-    state.enemies[0].position = glm::vec3(9, -13, 0);
-    state.enemies[0].acceleration = glm::vec3(0, -9.81f, 0);
-    state.enemies[0].aiType = PATROL; 
-    state.enemies[0].aiState = ACTIVE;
     
-    state.enemies[0].textureID = Util::LoadTexture("ant.png");
-    state.enemies[0].height = 1.0f;
-    state.enemies[0].width = 1.0f;
-    
-    state.enemies[0].movement = glm::vec3(0);
-    state.enemies[0].speed = 1;
-    
-    
-    // Initialize and Load Coins
+    // Initialize and Load Coins (Cake)
     state.coins = new Entity[LEVEL1_COIN_COUNT];
     state.coins[0].entityType = COIN;
     
@@ -93,18 +107,21 @@ void Level1::Initialize() {
     state.coins[0].height = 1.0f;
     state.coins[0].width = 0.5f;
     
+    
+    // falling into hole sound
+    fall_sound = Mix_LoadWAV("fall1.flac");
 
 }
 
 void Level1::Update(float deltaTime) {
     state.player->Update(deltaTime, state.player, state.enemies, LEVEL1_ENEMY_COUNT, state.map);
-    state.player->Update(deltaTime, state.player, state.coins, LEVEL1_COIN_COUNT, state.map);
+    //state.player->Update(deltaTime, state.player, state.coins, LEVEL1_COIN_COUNT, state.map);
     
     
     for (int i = 0; i < LEVEL1_ENEMY_COUNT; i++) {
         state.enemies[i].Update(deltaTime, state.player, state.enemies, LEVEL1_ENEMY_COUNT, state.map);
-        std::cout << "Enemy: (" << state.enemies[i].position.x << ", ";
-        std::cout << state.enemies[0].position.y << ") \n";
+        std::cout << "Enemy" << i << ": (" << state.enemies[i].position.x << ", ";
+        std::cout << state.enemies[i].position.y << ") \n";
     }
     
     for (int i = 0; i < LEVEL1_COIN_COUNT; i++) {
@@ -146,22 +163,22 @@ void Level1::Update(float deltaTime) {
     }
       
     
-    // Jump into Portal here to move to next level
-    if ((state.player->position.x >= 15.4) && (state.player->position.y >= -1.2)) {
+    // Fall into hole here to move to next level
+    if ((state.player->position.x >= 14.4) && (state.player->position.y >= -1.2)) {
         state.nextScene = 2;
+        Mix_PlayChannel(-1, fall_sound, 0);
     }
     
-    
-    // lose life if player falls into pit
-//    else if (state.player->position.y < -15.5) {
-//        loseLife();
-//        if (state.player->lives == 0) {
-//            state.nextScene = 5;
-//        }
-//        else {
-//            state.nextScene = 1;
-//        }
-//    }
+    //lose life if player falls off edge
+    else if ((state.player->position.y > 0.8 ) || (state.player->position.y < -15.0 ) || (state.player->position.x > 16 ))  {
+        loseLife();
+        if (state.player->lives == 0) {
+            state.nextScene = 5;
+        }
+        else {
+            state.nextScene = 1;
+        }
+    }
     
 }
 
@@ -181,15 +198,15 @@ void Level1::Render(ShaderProgram *program) {
     }
     
     GLuint fontTextureID = Util::LoadTexture("font1.png");
-    Util::DrawText(program, fontTextureID, "Level 1", 1.0f, -0.1f, glm::vec3(1.25, -13, 0));
-    Util::DrawText(program, fontTextureID, "Climb Up!", 0.4f, -0.2f, glm::vec3(8.7, -10, 0));
-    Util::DrawText(program, fontTextureID, "Portal ->", 0.4f, -0.2f, glm::vec3(3, -3, 0));
-    Util::DrawText(program, fontTextureID, "Jump into the Portal!", 0.4f, -0.2f, glm::vec3(10, 0.5, 0));
+    Util::DrawText(program, fontTextureID, "Level 1", 1.0f, -0.1f, glm::vec3(1.25, -12, 0));
+    Util::DrawText(program, fontTextureID, "Find the Hole!!", 0.4f, -0.2f, glm::vec3(8.7, -10, 0));
+    Util::DrawText(program, fontTextureID, "Hole ->", 0.4f, -0.2f, glm::vec3(3, -3, 0));
+    Util::DrawText(program, fontTextureID, "Go into the Hole!", 0.4f, -0.2f, glm::vec3(10, -1, 0));
 
     std::string lives = std::to_string(state.player_lives);
     std::string lives_remaining = "Lives: " + lives;
 
-    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(3, 1.0, 0));
+    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(7, 1.0, 0));
 
 
     }

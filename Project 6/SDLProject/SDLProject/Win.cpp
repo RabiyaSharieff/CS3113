@@ -35,7 +35,7 @@ void Win::Initialize() {
    state.player = new Entity();
    state.player->entityType = PLAYER;
 
-   state.player->position = glm::vec3(5, -13, 0);
+    state.player->position = glm::vec3(6.3, -13, 0);
    state.player->movement = glm::vec3(0);
    state.player->acceleration = glm::vec3(0, -9.81f, 0);
    state.player->speed = 2.5f;
@@ -57,7 +57,6 @@ void Win::Initialize() {
    state.player->height = 0.8f;
    state.player->width = 0.35f;
 
-   state.player->jumpPower = 7.0f;
 }
 
 void Win::Update(float deltaTime) {
