@@ -126,7 +126,6 @@ void Level2::Initialize() {
     // falling into hole sound
      fall_sound2 = Mix_LoadWAV("fall1.flac");
 
-       
 }
 
 void Level2::Update(float deltaTime) {
@@ -161,7 +160,7 @@ void Level2::Update(float deltaTime) {
     else if (state.player-> playerDefeated == true) {
         std::cout << "Oh no enemy collison";
         loseLife();
-        state.nextScene = 1;
+        state.nextScene = 2;
     }
     
     // coin logic

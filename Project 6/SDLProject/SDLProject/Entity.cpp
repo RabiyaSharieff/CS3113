@@ -24,7 +24,6 @@ bool Entity::CheckCollision(Entity *other) {
 }
 
 
-
 // Check for overlap X and Y
 void Entity::CheckCollisionsY(Entity *objects, int objectCount)
 {
@@ -151,7 +150,7 @@ void Entity::AIWaitAndGo(Entity *player) {
     }
 }
 
-// walks in continuous loop on middle platform on X axis
+// moves in continuous loop on X axis
 void Entity::AIPatrolX() {
     switch(aiState) {
         case IDLE:
@@ -170,7 +169,7 @@ void Entity::AIPatrolX() {
     }
 }
     
-    // walks in continuous loop on middle platform on Y axis
+    // moves in continuous loop on Y axis
     void Entity::AIPatrolY() {
         switch(aiState) {
             case IDLE:
@@ -204,6 +203,21 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
     else {
         CheckCollisionsEnemy(objects, objectCount);
     }
+
+//    if (entityType == ENEMY) {
+//        AI(player);
+//    }
+//    else {
+//
+//        if ((CheckCollision(&objects[0])) && (objects[0].entityType == ENEMY)){
+//            CheckCollisionsEnemy(objects, objectCount);
+//        }
+//        else ((CheckCollision(&objects[0])) && (objects[0].entityType == COIN)) {
+//            CheckCollisionsCoin(objects, objectCount);
+//        }
+//
+//    }
+
     
 //    if (entityType == PLAYER){
 //         std::cout << "step 1 to get to coin collison";

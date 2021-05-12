@@ -38,7 +38,7 @@ void Win::Initialize() {
     state.player->position = glm::vec3(6.3, -13, 0);
    state.player->movement = glm::vec3(0);
    state.player->acceleration = glm::vec3(0, -9.81f, 0);
-   state.player->speed = 2.5f;
+    state.player->speed = 5.0f;
    state.player->textureID = Util::LoadTexture("ninja_m.png");
    
    // Animate Player

@@ -14,7 +14,7 @@
 #include "Map.h"
 
 enum EntityType {PLAYER, PLATFORM, ENEMY, COIN};
-enum AIType { WALKER, WAITANDGO, PATROLX, PATROLY };
+enum AIType { WALKER, WAITANDGO, PATROLX, PATROLY};
 enum AIState { IDLE, ACTIVE };
 
 class Entity {
@@ -83,7 +83,6 @@ class Entity {
         void Render(ShaderProgram *program);
         void DrawSpriteFromTextureAtlas(ShaderProgram *program, GLuint textureID, int index);
         
-    
     
 };
 

@@ -172,7 +172,7 @@ void Level3::Update(float deltaTime) {
        else if (state.player-> playerDefeated == true) {
            std::cout << "Oh no enemy collison";
            loseLife();
-           state.nextScene = 1;
+           state.nextScene = 3;
        }
        
        // coin logic
@@ -229,7 +229,7 @@ void Level3::Render(ShaderProgram *program) {
     std::string lives_remaining = "Lives: " + lives;
 
 
-    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(15, 1, 0));
+    Util::DrawText(program, fontTextureID, lives_remaining, 0.4f, -0.2f, glm::vec3(2, 1, 0));
        
 }
 
